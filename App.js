@@ -13,6 +13,7 @@ import Chart from "./assets/icons/histogram.png";
 
 // Screens
 import MarketScreen from "./screens/market-screen";
+import MarketDetailScreen from "./screens/market-detail-screen";
 
 // Fonts
 import { useFonts } from "expo-font";
@@ -51,6 +52,7 @@ const bottomNavigation = createBottomTabNavigator({
 const stackNavigator = createStackNavigator(
   {
     bottomNavigation: bottomNavigation,
+    MarketDetail: MarketDetailScreen,
   },
   { defaultNavigationOptions: { headerShown: null } },
 );

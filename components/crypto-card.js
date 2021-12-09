@@ -1,5 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { TouchableOpacity, StyleSheet, Image, View } from "react-native";
+import { withNavigation } from "react-navigation";
 
 // Components
 import DefaultText from "../components/default-text";
@@ -10,9 +11,13 @@ import colors from "../assets/resources/colors";
 import Up from "../assets/icons/up.png";
 import Down from "../assets/icons/down.png";
 
-const CryptoCard = ({ image, name, symbol, price, price_change_percentage_24h, price_change_24h }) => {
+const CryptoCard = ({ id, image, name, symbol, price, price_change_percentage_24h, price_change_24h, navigation }) => {
   price_change_percentage_24h = (price_change_percentage_24h * 100).toFixed(1);
   price_change_24h = price_change_24h.toFixed(1);
+
+  const goToMarketDetail = () => {
+    navigation.navigate("MarketDetail", { id: id, name: name, imageUrl: image, price: price });
+  };
 
   const increaseOrDown = () => {
     if (price_change_percentage_24h > 0) {
@@ -37,7 +42,7 @@ const CryptoCard = ({ image, name, symbol, price, price_change_percentage_24h, p
   };
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={goToMarketDetail}>
       <Image source={{ uri: image }} style={styles.imageStyle} />
       <View style={styles.symbolContainer}>
         <DefaultText>{name}</DefaultText>
@@ -47,7 +52,7 @@ const CryptoCard = ({ image, name, symbol, price, price_change_percentage_24h, p
         <DefaultText>${price}</DefaultText>
         {increaseOrDown()}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -66,4 +71,4 @@ const styles = StyleSheet.create({
   symbolContainer: { alignItems: "center", minWidth: 128 },
   dataContainer: { alignItems: "center" },
 });
-export default CryptoCard;
+export default withNavigation(CryptoCard);

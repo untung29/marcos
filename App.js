@@ -1,21 +1,25 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { createAppContainer, createSwitchNavigator } from "react-navigation";
 
+// React Navigation
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
+import { createBottomTabNavigator } from "react-navigation-tabs";
 
 // Assets
-import Money from "./assets/money-alt.png";
-import Chart from "./assets/histogram.png";
+import Money from "./assets/icons/money-alt.png";
+import Chart from "./assets/icons/histogram.png";
 
 // Screens
 import CoinsList from "./screens/coins-list";
 
-const Market = () => {
-  return <View>{/* <Image source={Money} style={{ height: 24, width: 24 }} /> */}</View>;
-};
+// Fonts
+import { useFonts } from "expo-font";
+
+// const Market = () => {
+//   return <View>{/* <Image source={Money} style={{ height: 24, width: 24 }} /> */}</View>;
+// };
 
 const Trend = () => {
   return (
@@ -51,9 +55,20 @@ const stackNavigator = createStackNavigator(
   { defaultNavigationOptions: { headerShown: null } },
 );
 
-App = createAppContainer(stackNavigator);
+const App = createAppContainer(stackNavigator);
 
-export default App;
+export default () => {
+  const [loaded] = useFonts({
+    PoppinsRegular: require("./assets/fonts/Poppins,Roboto_Mono/Poppins/Poppins-Regular.ttf"),
+    PoppinsBold: require("./assets/fonts/Poppins,Roboto_Mono/Poppins/Poppins-Bold.ttf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
+  return <App />;
+};
 
 const styles = StyleSheet.create({
   container: {

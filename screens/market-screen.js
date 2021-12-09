@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, View, StyleSheet, FlatList } from "react-native";
+import { SafeAreaView, View, StyleSheet, FlatList, ActivityIndicator } from "react-native";
 
 // Components
 import CryptoList from "../components/crypto-list";
+import DefaultText from "../components/default-text";
+import LoadingState from "../components/loading-state";
 
 // API
 import api from "../api";
 
 const MarketScreen = () => {
   const [listCoins, setListCoins] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchListCoins = async () => {
+    setIsLoading(true);
     const fetchCoins = await api.get("/coins/markets", {
       params: { vs_currency: "usd" },
     });
+    setIsLoading(false);
     setListCoins(fetchCoins.data);
   };
   useEffect(() => {
     fetchListCoins();
   }, []);
+
+  if (isLoading) {
+    return <LoadingState />;
+  }
 
   return (
     <SafeAreaView style={styles.outsideContainer}>

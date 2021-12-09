@@ -17,7 +17,7 @@ const MarketDetailScreen = ({ navigation }) => {
 
     let prices = [];
     let labels = [];
-    let marketCaps = [];
+    // let marketCaps = [];
 
     let latestVolume = coinDetail.data.total_volumes[coinDetail.data.total_volumes.length - 1][1];
 
@@ -25,7 +25,7 @@ const MarketDetailScreen = ({ navigation }) => {
       //   coinDetail.data.prices[i][1] = coinDetail.data.prices[i][1].toFixed(1);
       prices.push(coinDetail.data.prices[i][1]);
       labels.push("Day " + (i + 1));
-      marketCaps.push(coinDetail.data.total_volumes[i][1]);
+      // marketCaps.push(coinDetail.data.total_volumes[i][1]);
     }
     setMarketData({
       prices: prices,
@@ -47,11 +47,11 @@ const MarketDetailScreen = ({ navigation }) => {
             <Image source={{ uri: imageUrl }} style={{ height: 32, width: 32, marginTop: 16 }} />
             <View style={styles.priceContainer}>
               <View style={{ alignItems: "center" }}>
-                <DefaultTextBold style={styles.fontSize}>Current Price</DefaultTextBold>
+                <DefaultText style={styles.fontSize}>Current Price</DefaultText>
                 <DefaultText style={styles.fontSize}>${price}</DefaultText>
               </View>
               <View style={{ alignItems: "center" }}>
-                <DefaultTextBold style={styles.fontSize}>Volume</DefaultTextBold>
+                <DefaultText style={styles.fontSize}>Volume</DefaultText>
                 <DefaultText style={styles.fontSize}>${marketData.latestVolume.toFixed(0)}</DefaultText>
               </View>
             </View>

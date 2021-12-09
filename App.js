@@ -14,21 +14,10 @@ import Chart from "./assets/icons/histogram.png";
 // Screens
 import MarketScreen from "./screens/market-screen";
 import MarketDetailScreen from "./screens/market-detail-screen";
+import TrendingScreen from "./screens/trend-screen";
 
 // Fonts
 import { useFonts } from "expo-font";
-
-// const Market = () => {
-//   return <View>{/* <Image source={Money} style={{ height: 24, width: 24 }} /> */}</View>;
-// };
-
-const Trend = () => {
-  return (
-    <View>
-      <Text>Trend</Text>
-    </View>
-  );
-};
 
 const bottomNavigation = createBottomTabNavigator({
   Market: {
@@ -40,7 +29,7 @@ const bottomNavigation = createBottomTabNavigator({
     },
   },
   Trend: {
-    screen: Trend,
+    screen: TrendingScreen,
     navigationOptions: {
       tabBarIcon: props => {
         return <Image source={Chart} style={{ height: 24, width: 24 }} />;

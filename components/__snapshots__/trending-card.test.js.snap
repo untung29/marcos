@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TrendingCard /> 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#2F5487",
+      "borderRadius": 8,
+      "flexDirection": "row",
+      "justifyContent": "space-around",
+      "padding": 16,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": undefined,
+      }
+    }
+    style={
+      Object {
+        "height": 24,
+        "width": 24,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "minWidth": 128,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "PoppinsRegular",
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "PoppinsRegular",
+          },
+          undefined,
+        ]
+      }
+    >
+      Volume:
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "white",
+            "fontFamily": "PoppinsBold",
+          },
+          Object {
+            "marginTop": 16,
+          },
+        ]
+      }
+    >
+      $
+    </Text>
+  </View>
+</View>
+`;

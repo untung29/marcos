@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DefaultText /> 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "white",
+        "fontFamily": "PoppinsRegular",
+      },
+      undefined,
+    ]
+  }
+/>
+`;

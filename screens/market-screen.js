@@ -5,6 +5,7 @@ import { SafeAreaView, View, StyleSheet, FlatList } from "react-native";
 import CryptoList from "../components/crypto-list";
 import LoadingState from "../components/loading-state";
 import TextInputSearch from "../components/text-input-search";
+import Toast from "react-native-toast-message";
 
 // API
 import api from "../api";
@@ -26,12 +27,24 @@ const MarketScreen = () => {
 
   const fetchListCoins = async () => {
     setIsLoading(true);
-    const fetchCoins = await api.get("/coins/markets", {
-      params: { vs_currency: "usd" },
-    });
-    setIsLoading(false);
-    setListCoins(fetchCoins.data);
-    setFilteredCoins(fetchCoins.data);
+
+    try {
+      const fetchCoins = await api.get("/coins/markets", {
+        params: { vs_currency: "usd" },
+      });
+      setIsLoading(false);
+      setListCoins(fetchCoins.data);
+    } catch (err) {
+      setIsLoading(false);
+
+      Toast.show({
+        type: "error",
+        text1: "Hello",
+        text2: "Our server is in maintenance. Please try again later.",
+      });
+    }
+
+    // setFilteredCoins(fetchCoins.data);
   };
   useEffect(() => {
     fetchListCoins();
@@ -45,7 +58,12 @@ const MarketScreen = () => {
     <SafeAreaView style={styles.outsideContainer}>
       <View style={styles.innerCointainer}>
         <TextInputSearch onChange={onSearch} />
-        <FlatList data={filteredCoins} keyExtractor={data => data.id} renderItem={CryptoList} initialNumToRender={10} />
+        <FlatList
+          data={filteredCoins ? filteredCoins : listCoins}
+          keyExtractor={data => data.id}
+          renderItem={CryptoList}
+          initialNumToRender={10}
+        />
       </View>
     </SafeAreaView>
   );

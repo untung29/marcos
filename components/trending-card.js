@@ -11,7 +11,6 @@ const TrendingCard = ({ image, name, volume }) => {
       <Image source={{ uri: image }} style={styles.imageStyle} />
       <View style={styles.symbolContainer}>
         <DefaultText>{name}</DefaultText>
-        {/* <DefaultTextBold style={{ color: colors.blue, marginTop: 12 }}>{symbol.toUpperCase()}</DefaultTextBold> */}
       </View>
       <View style={styles.dataContainer}>
         <DefaultText>Volume:</DefaultText>

@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
+import Toast from "react-native-toast-message";
 
 // React Navigation
 import { createAppContainer } from "react-navigation";
@@ -58,5 +59,10 @@ export default () => {
     return null;
   }
 
-  return <App />;
+  return (
+    <>
+      <App />
+      <Toast />
+    </>
+  );
 };

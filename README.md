@@ -3,8 +3,10 @@ MARCOS - Market Coins (Cryptocurrency)
 _Marcos is a mobile app that provides information about the cryptocurrencies price, total volume, and etc. Moreover, it also provides information about the trending cryptocurrency based on its volume._
 
 **HOW TO RUN THE APP?**
-1. npm install
-2. expo start
+1. Clone this project
+2. Inside the directory, npm install
+3. expo start
+4. Install expo in your device and scan the barcode with your device's camera
 
 
 **FEATURES**

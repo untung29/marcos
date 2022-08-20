@@ -3,9 +3,7 @@ import { View, SafeAreaView, StyleSheet, Dimensions, Image } from "react-native"
 import { LineChart } from "react-native-chart-kit";
 import api from "../api";
 
-// components
 import LoadingState from "../components/loading-state";
-import DefaultTextBold from "../components/default-text-bold";
 import DefaultText from "../components/default-text";
 
 const MarketDetailScreen = ({ navigation }) => {
@@ -17,15 +15,12 @@ const MarketDetailScreen = ({ navigation }) => {
 
     let prices = [];
     let labels = [];
-    // let marketCaps = [];
 
     let latestVolume = coinDetail.data.total_volumes[coinDetail.data.total_volumes.length - 1][1];
 
     for (let i = 0; i < coinDetail.data.prices.length; i++) {
-      //   coinDetail.data.prices[i][1] = coinDetail.data.prices[i][1].toFixed(1);
       prices.push(coinDetail.data.prices[i][1]);
       labels.push("Day " + (i + 1));
-      // marketCaps.push(coinDetail.data.total_volumes[i][1]);
     }
     setMarketData({
       prices: prices,

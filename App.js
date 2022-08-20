@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { Image } from "react-native";
 import Toast from "react-native-toast-message";
 
 // React Navigation
